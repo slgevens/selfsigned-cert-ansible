@@ -1,0 +1,23 @@
+---
+- name: Ensure Openssl is installed
+  tags: install
+  with_items:
+    - openssl
+  apt: name={{ item }} state=present
+
+- name: Ensure path/cert do not already exists
+  tags: path
+  stat: path='{{ cert_path }}'
+  register: path_present
+
+- name: Creating cert
+  when: path_present.stat.exists == False
+  tags: cert
+  register: cert_generate
+  command: openssl req -new -x509 -subj "/C={{ cert_country }}/ST={{ cert_state }}/L={{ cert_city }}/O={{ cert_organisation }}/CN={{ cert_common_name }}" -days '{{ cert_days }}' -nodes -out '{{ cert_path }}' -keyout '{{ cert_path }}'
+
+- debug: { var: cert_generate }
+  tags: cert
+
+- name: Setting cert strict permissions
+  file: path='{{ cert_path }}' mode='{{ cert_mode }}'

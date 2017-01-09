@@ -1,0 +1,15 @@
+---
+cert_path: /etc/stunnel/stunnel.pem
+
+cert_owner: root
+cert_group: root
+cert_mode: 0600
+
+cert_days: 3650
+
+cert_country: FR
+cert_state: France
+cert_city: Paris
+cert_organisation: Epiconcept
+cert_common_name: '{{ ohai_fqdn }}'
+...

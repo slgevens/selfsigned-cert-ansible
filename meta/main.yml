@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Evens SOLIGNAC
+  description: ansible role to generate a simple selfsigned certificate
+  licence: MIT
+  min_ansible_version: 1.9
+
+  platforms:
+    - name: Ubuntu
+      versions: all
+    - name: Debian
+      versions: all
+
+  categories:
+    - system
+    - security
+
+  dependencies: []
+...
+       
+    
