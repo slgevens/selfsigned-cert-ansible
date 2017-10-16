@@ -26,7 +26,7 @@ Playbook example
 	 cert_state: France
 	 cert_city: Paris
 	 cert_organisation: Epiconcept
-	 cert_common_name: '{{ ohai_fqdn }}'
+	 cert_common_name: '{{ ansible_hostname }}'
 
        
      - include_role: name=selfsigned-cert-ansible
