@@ -1,9 +1,7 @@
 ---
 - name: Ensure Openssl is installed
   tags: install
-  with_items:
-    - openssl
-  apt: name={{ item }} state=present
+  apt: name="{{ cert_packages }}" state=present
 
 - name: Ensure path/cert do not already exists
   tags: path

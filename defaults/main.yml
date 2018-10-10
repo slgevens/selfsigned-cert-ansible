@@ -1,4 +1,5 @@
 ---
+cert_packages: [openssl]
 cert_path: /etc/stunnel/stunnel.pem
 
 cert_owner: root
